@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/splash.dart';
 
-//Splash Screen Da Aplicação
+
 void main() {
   runApp(const MyApp());
 }

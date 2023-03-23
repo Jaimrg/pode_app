@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*Splash Screen*/
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -33,23 +34,31 @@ class _SplashScreenState extends State<SplashScreen> {
                     SizedBox(
                       height: 50,
                     ),
-                    Expanded(child: Padding(padding: EdgeInsets.only(top: 20,right: 50,left: 50),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        text:
-                            'Being a Person With a disability does not mean  being less qualified\nYou ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal, fontSize: 20,color: Colors.white,fontFamily: 'Montserrat'),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: 'Can!',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20.0,color: Colors.white, fontFamily: 'Montserrat')),
-                          
-                        ],
+                    Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.only(top: 20, right: 50, left: 50),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          text:
+                              'Being a Person With a disability does not mean  being less qualified\nYou ',
+                          style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontFamily: 'Montserrat'),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Can!',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0,
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat')),
+                          ],
+                        ),
                       ),
-                    ),)),                  
+                    )),
                   ],
                 )
               ],
