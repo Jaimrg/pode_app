@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  ink_page_indicator: ^0.2.1
   flutter:
     sdk: flutter
 
@@ -76,8 +77,8 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/Fonts/MontserratAlternates-Regular.otf
-        - asset: assets/Fonts/MontserratAlternates-Bold.otf
+        - asset: assets/Fonts/montserrat/MontserratAlternates-Regular.otf
+          weight: 100        
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
