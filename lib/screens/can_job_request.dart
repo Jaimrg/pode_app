@@ -32,12 +32,13 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 250,
+                        height: 300,
+                        width: 300,
                         child: Card(
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'images/i1.png',
+                          'images/i5.png',
                           height: 220,
                         ),
                         shape: RoundedRectangleBorder(
@@ -61,7 +62,7 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: const TextSpan(
-                            text: 'You Can Find\n',
+                            text: 'You ',
                             style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 20,
@@ -69,9 +70,16 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                                 fontFamily: 'Montserrat'),
                             children: <TextSpan>[
                               TextSpan(
-                                  text: 'Accessible Places',
+                                  text: 'Can ',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 20.0,
+                                      color: Color.fromRGBO(50, 140, 115, 1),
+                                      fontFamily: 'Montserrat')),
+                                      TextSpan(
+                                  text: 'Request For Job',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
                                       fontSize: 20.0,
                                       color: Color.fromRGBO(50, 140, 115, 1),
                                       fontFamily: 'Montserrat')),

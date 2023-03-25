@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/splash.dart';
-import 'screens/can_report.dart';
+import 'screens/can_job_request.dart';
 
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.blue,
       ),
-      home: Can_Report(),
+      home: Can_Job_Request(),
     );
   }
 }
