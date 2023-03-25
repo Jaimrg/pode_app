@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
 
-class Can_Places extends StatefulWidget {
-  const Can_Places({super.key});
+class Can_Job_Request extends StatefulWidget {
+  const Can_Job_Request({super.key});
 
   @override
-  State<Can_Places> createState() => _Can_PlacesState();
+  State<Can_Job_Request> createState() => _Can_Job_RequestState();
 }
 
-class _Can_PlacesState extends State<Can_Places> {
+class _Can_Job_RequestState extends State<Can_Job_Request> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
