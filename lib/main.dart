@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/splash.dart';
-import 'screens/can_job_request.dart';
+import 'screens/places.dart';
 
 
 void main() {
@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: Can_Job_Request(),
+      home: Places(),
     );
   }
 }
