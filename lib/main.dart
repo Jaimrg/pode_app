@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/splash.dart';
-import 'screens/can_places.dart';
+import 'screens/can_report.dart';
 
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.blue,
       ),
-      home: Can_Places(),
+      home: Can_Report(),
     );
   }
 }
