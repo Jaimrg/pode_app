@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pode_app/constants.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:getwidget/getwidget.dart';
 
 class Places extends StatefulWidget {
   const Places({super.key});
@@ -74,7 +75,24 @@ class _PlacesState extends State<Places> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(AppBar().preferredSize.height),
-      //body: , Goto screens by current index
+      body: Center(
+        child: FutureBuilder(builder: (context, snapshot) {
+          return Column(
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  padding: EdgeInsets.only(left: 12.0,right: 12.0),
+                  child: buildCard(),
+                );
+              }))
+            ],
+          );
+        }),
+      ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: currentIndex,
         onItemSelected: (index) {
@@ -84,20 +102,26 @@ class _PlacesState extends State<Places> {
         },
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(Icons.location_on),
+            title: Text('Places'),
             activeColor: kPrimaryColor,
             inactiveColor: kPrimaryColor,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.favorite),
-            title: Text('Favourites'),
+            icon: Icon(Icons.announcement_outlined),
+            title: Text('Complaints'),
             activeColor: kPrimaryColor,
             inactiveColor: kPrimaryColor,
           ),
           BottomNavyBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Profile'),
+            icon: Icon(Icons.history_edu_rounded),
+            title: Text('Stories'),
+            activeColor: kPrimaryColor,
+            inactiveColor: kPrimaryColor,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.bookmark),
+            title: Text('Job Request'),
             activeColor: kPrimaryColor,
             inactiveColor: kPrimaryColor,
           ),
@@ -110,5 +134,53 @@ class _PlacesState extends State<Places> {
         ],
       ),
     );
+  }
+
+  Card buildCard() {
+    var heading = 'Place Name';
+    var subheading = 'Location Country';
+    var cardImage =
+        Image.asset(
+                              'images/maps.jpg',
+                              
+                            );
+    var supportingText =
+        '';
+    return Card(
+        elevation: 4.0,
+        child: Column(
+          children: [
+            ListTile(
+              title: Text(heading),
+              subtitle: Text(subheading),
+              trailing: Icon(Icons.location_on),
+            ),
+            Container(
+              height: 200.0,
+              // child: Ink.image(
+              //   image: cardImage,
+              //   fit: BoxFit.cover,
+              // ),
+              child: Image.asset(
+                              'images/maps.jpg',
+                              
+                            ),
+            ),
+            // Container(
+            //   padding: EdgeInsets.all(16.0),
+            //   alignment: Alignment.centerLeft,
+            //   child: Text(supportingText),
+            // ),
+            ButtonBar(
+              children: [
+                
+                TextButton(
+                  child: const Text('Open'),
+                  onPressed: () {/* ... */},
+                )
+              ],
+            )
+          ],
+        ));
   }
 }

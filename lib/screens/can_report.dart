@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
+import 'package:pode_app/screens/places.dart';
 
 class Can_Report extends StatefulWidget {
   const Can_Report({super.key});
@@ -32,22 +33,21 @@ class _Can_ReportState extends State<Can_Report> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 300,
-                        width: 300,
-                        child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          'images/i3.png',
-                          height: 220,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        elevation: 5,
-                        margin: EdgeInsets.all(10),
-                      )
-                      ),
+                          height: 300,
+                          width: 300,
+                          child: Card(
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            child: Image.asset(
+                              'images/i3.png',
+                              height: 220,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            elevation: 5,
+                            margin: EdgeInsets.all(10),
+                          )),
                     ],
                   ),
                   Row(
@@ -76,8 +76,9 @@ class _Can_ReportState extends State<Can_Report> {
                                       fontSize: 20.0,
                                       color: Color.fromRGBO(50, 140, 115, 1),
                                       fontFamily: 'Montserrat')),
-                                      TextSpan(
-                                  text: 'Report complaint and tell your story of overcoming',
+                              TextSpan(
+                                  text:
+                                      'Report complaint and tell your story of overcoming',
                                   style: TextStyle(
                                       fontWeight: FontWeight.normal,
                                       fontSize: 20.0,
@@ -106,7 +107,13 @@ class _Can_ReportState extends State<Can_Report> {
                               borderRadius: BorderRadius.circular(32.0)),
                           minimumSize: Size(250, 52), //////// HERE
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Places()),
+                          );
+                        },
                         child: Text('Next'),
                       )
                     ],

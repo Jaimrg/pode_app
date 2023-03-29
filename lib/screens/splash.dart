@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'can_places.dart';
+import 'can_job_request.dart';
 
 /*Splash Screen*/
 class SplashScreen extends StatefulWidget {
@@ -9,6 +13,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 15),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Can_Job_Request())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
+import 'package:pode_app/screens/can_places.dart';
 
 class Can_Job_Request extends StatefulWidget {
   const Can_Job_Request({super.key});
@@ -32,22 +33,21 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 300,
-                        width: 300,
-                        child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          'images/i5.png',
-                          height: 220,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        elevation: 5,
-                        margin: EdgeInsets.all(10),
-                      )
-                      ),
+                          height: 300,
+                          width: 300,
+                          child: Card(
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            child: Image.asset(
+                              'images/i5.png',
+                              height: 220,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            elevation: 5,
+                            margin: EdgeInsets.all(10),
+                          )),
                     ],
                   ),
                   Row(
@@ -76,7 +76,7 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                                       fontSize: 20.0,
                                       color: Color.fromRGBO(50, 140, 115, 1),
                                       fontFamily: 'Montserrat')),
-                                      TextSpan(
+                              TextSpan(
                                   text: 'Request For Job',
                                   style: TextStyle(
                                       fontWeight: FontWeight.normal,
@@ -106,7 +106,13 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                               borderRadius: BorderRadius.circular(32.0)),
                           minimumSize: Size(250, 52), //////// HERE
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Can_Places()),
+                          );
+                        },
                         child: Text('Next'),
                       )
                     ],

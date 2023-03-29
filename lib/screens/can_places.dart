@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
+import 'package:pode_app/screens/can_report.dart';
 
 class Can_Places extends StatefulWidget {
   const Can_Places({super.key});
@@ -32,21 +33,20 @@ class _Can_PlacesState extends State<Can_Places> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 250,
-                        child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          'images/i1.png',
-                          height: 220,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        elevation: 5,
-                        margin: EdgeInsets.all(10),
-                      )
-                      ),
+                          height: 250,
+                          child: Card(
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            child: Image.asset(
+                              'images/i1.png',
+                              height: 220,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            elevation: 5,
+                            margin: EdgeInsets.all(10),
+                          )),
                     ],
                   ),
                   Row(
@@ -98,7 +98,13 @@ class _Can_PlacesState extends State<Can_Places> {
                               borderRadius: BorderRadius.circular(32.0)),
                           minimumSize: Size(250, 52), //////// HERE
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Can_Report()),
+                          );
+                        },
                         child: Text('Next'),
                       )
                     ],
