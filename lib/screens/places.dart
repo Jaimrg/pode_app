@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pode_app/constants.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:pode_app/screens/job_request.dart';
 
 class Places extends StatefulWidget {
   const Places({super.key});
@@ -98,6 +99,8 @@ class _PlacesState extends State<Places> {
         onItemSelected: (index) {
           setState(() {
             currentIndex = index;
+            navigate();
+            
           });
         },
         items: <BottomNavyBarItem>[
@@ -124,6 +127,7 @@ class _PlacesState extends State<Places> {
             title: Text('Job Request'),
             activeColor: kPrimaryColor,
             inactiveColor: kPrimaryColor,
+            
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.settings),
@@ -134,6 +138,24 @@ class _PlacesState extends State<Places> {
         ],
       ),
     );
+  }
+
+  void navigate(){
+    if (currentIndex==0) {
+      Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Places()),
+                          );
+    }
+
+    if (currentIndex==3) {
+      Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Job_Request()),
+                          );
+    }
   }
 
   Card buildCard() {
