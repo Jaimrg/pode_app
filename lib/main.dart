@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/splash.dart';
 import 'screens/places.dart';
+import 'screens.dart';
 
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.green,
       ),
-      home: Places(),
+      home: ScreenChange(),
     );
   }
 }

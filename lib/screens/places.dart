@@ -3,6 +3,7 @@ import 'package:pode_app/constants.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:pode_app/screens/job_request.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Places extends StatefulWidget {
   const Places({super.key});
@@ -14,6 +15,31 @@ class Places extends StatefulWidget {
 class _PlacesState extends State<Places> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int currentIndex = 0;
+  final int value = 3;
+  double? _ratingValue;
+
+  Widget starRating() {
+    return RatingBar(
+        initialRating: 0,
+        direction: Axis.horizontal,
+        allowHalfRating: true,
+        itemCount: 5,
+        ratingWidget: RatingWidget(
+            full: const Icon(Icons.star, color: Colors.orange),
+            half: const Icon(
+              Icons.star_half,
+              color: Colors.orange,
+            ),
+            empty: const Icon(
+              Icons.star_outline,
+              color: Colors.orange,
+            )),
+        onRatingUpdate: (value) {
+          setState(() {
+            _ratingValue = value;
+          });
+        });
+  }
 
   _appBar(height) => PreferredSize(
         preferredSize: Size(MediaQuery.of(context).size.width, height + 100),
@@ -74,120 +100,61 @@ class _PlacesState extends State<Places> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appBar(AppBar().preferredSize.height),
-      body: Center(
-        child: FutureBuilder(builder: (context, snapshot) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  padding: EdgeInsets.only(left: 12.0,right: 12.0),
-                  child: buildCard(),
-                );
-              }))
-            ],
-          );
-        }),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: currentIndex,
-        onItemSelected: (index) {
-          setState(() {
-            currentIndex = index;
-            navigate();
-            
-          });
-        },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-            icon: Icon(Icons.location_on),
-            title: Text('Places'),
-            activeColor: kPrimaryColor,
-            inactiveColor: kPrimaryColor,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.announcement_outlined),
-            title: Text('Complaints'),
-            activeColor: kPrimaryColor,
-            inactiveColor: kPrimaryColor,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.history_edu_rounded),
-            title: Text('Stories'),
-            activeColor: kPrimaryColor,
-            inactiveColor: kPrimaryColor,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.bookmark),
-            title: Text('Job Request'),
-            activeColor: kPrimaryColor,
-            inactiveColor: kPrimaryColor,
-            
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
-            activeColor: kPrimaryColor,
-            inactiveColor: kPrimaryColor,
-          ),
-        ],
-      ),
+    return Center(
+      child: FutureBuilder(builder: (context, snapshot) {
+        return Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+              return Container(
+                padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                child: buildCard(),
+              );
+            }))
+          ],
+        );
+      }),
     );
-  }
-
-  void navigate(){
-    if (currentIndex==0) {
-      Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Places()),
-                          );
-    }
-
-    if (currentIndex==3) {
-      Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Job_Request()),
-                          );
-    }
   }
 
   Card buildCard() {
     var heading = 'Place Name';
     var subheading = 'Location Country';
-    var cardImage =
-        Image.asset(
-                              'images/maps.jpg',
-                              
-                            );
-    var supportingText =
-        '';
+    var cardImage = Image.asset(
+      'images/maps.jpg',
+    );
+    var supportingText = '';
     return Card(
         elevation: 4.0,
         child: Column(
           children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  top: 16.0, right: 16.0, left: 16.0, bottom: 10.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  'images/maps.jpg',
+                ),
+              ),
+            ),
             ListTile(
               title: Text(heading),
               subtitle: Text(subheading),
-              trailing: Icon(Icons.location_on),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(5, (index) {
+                  return Icon(
+                    index < value ? Icons.star : Icons.star_border,
+                    color: kPrimaryColor,
+                  );
+                }),
+              ), //Icon(Icons.location_on),
             ),
-            Container(
-              height: 200.0,
-              // child: Ink.image(
-              //   image: cardImage,
-              //   fit: BoxFit.cover,
-              // ),
-              child: Image.asset(
-                              'images/maps.jpg',
-                              
-                            ),
-            ),
+
             // Container(
             //   padding: EdgeInsets.all(16.0),
             //   alignment: Alignment.centerLeft,
@@ -195,9 +162,8 @@ class _PlacesState extends State<Places> {
             // ),
             ButtonBar(
               children: [
-                
                 TextButton(
-                  child: const Text('Open'),
+                  child: const Text('Details'),
                   onPressed: () {/* ... */},
                 )
               ],
