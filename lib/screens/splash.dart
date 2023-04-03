@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 15),
+        Duration(seconds: 6),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => Can_Job_Request())));
   }
@@ -72,7 +72,9 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                     )),
                   ],
-                )
+                ),
+                SizedBox(height: 15,),
+                CircularProgressIndicator(color: Colors.white,)
               ],
             )),
       ),

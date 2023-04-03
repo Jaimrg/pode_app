@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
+import 'package:pode_app/screens.dart';
 import 'package:pode_app/screens/places.dart';
 
 class Can_Report extends StatefulWidget {
@@ -111,10 +112,10 @@ class _Can_ReportState extends State<Can_Report> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Places()),
+                                builder: (context) => const ScreenChange()),
                           );
                         },
-                        child: Text('Next'),
+                        child: Text('Finish'),
                       )
                     ],
                   )

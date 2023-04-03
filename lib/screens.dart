@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pode_app/constants.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:pode_app/screens/can_places.dart';
 import 'package:pode_app/screens/job_request.dart';
 import 'package:pode_app/screens/places.dart';
 import 'package:pode_app/screens/complaints.dart';
@@ -49,7 +50,11 @@ class _ScreenChangeState extends State<ScreenChange> {
                     icon: new Icon(Icons.arrow_back),
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
+                      Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Can_Places()),
+                          );
                     }),
                 primary: false,
                 title: TextField(

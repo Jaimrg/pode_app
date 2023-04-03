@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
 import 'package:pode_app/screens/can_places.dart';
+import 'package:pode_app/screens/can_report.dart';
 
 class Can_Job_Request extends StatefulWidget {
   const Can_Job_Request({super.key});
@@ -56,6 +57,7 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                       SizedBox(
                         height: 50,
                       ),
+                      
                       Expanded(
                           child: Padding(
                         padding: EdgeInsets.only(top: 20, right: 50, left: 50),
@@ -110,7 +112,7 @@ class _Can_Job_RequestState extends State<Can_Job_Request> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Can_Places()),
+                                builder: (context) => const Can_Report()),
                           );
                         },
                         child: Text('Next'),

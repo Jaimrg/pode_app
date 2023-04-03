@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ink_page_indicator/ink_page_indicator.dart';
+import 'package:pode_app/screens/can_job_request.dart';
 import 'package:pode_app/screens/can_report.dart';
 
 class Can_Places extends StatefulWidget {
@@ -102,7 +103,7 @@ class _Can_PlacesState extends State<Can_Places> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Can_Report()),
+                                builder: (context) => const Can_Job_Request()),
                           );
                         },
                         child: Text('Next'),
