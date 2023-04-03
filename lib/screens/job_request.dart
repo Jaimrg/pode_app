@@ -63,7 +63,7 @@ class _Job_RequestState extends State<Job_Request> {
                                       CircleAvatar(
                                         radius: 50,
                                         backgroundImage: NetworkImage(
-                                            "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/22/22a4f44d8c8f1451f0eaa765e80b698bab8dd826_full.jpg"),
+                                            "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?r=pg"),
                                       ),
                                       const SizedBox(width: 20),
                                       Column(

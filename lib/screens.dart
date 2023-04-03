@@ -20,13 +20,13 @@ class _ScreenChangeState extends State<ScreenChange> {
   int currentIndex = 0;
 
   _appBar(height) => PreferredSize(
-        preferredSize: Size(MediaQuery.of(context).size.width, height + 100),
+        preferredSize: Size(MediaQuery.of(context).size.width, height + (100)),
         child: Stack(
           children: <Widget>[
             Container(
               child: Center(
                 child: Text(
-                  currentIndex==0?"Places":currentIndex==1?"Complaints":currentIndex==3?"Complaints":currentIndex==2?"Stories":"Settings",
+                  currentIndex==0?"Places":currentIndex==1?"Complaints":currentIndex==3?"Job Request":currentIndex==2?"Stories":"Settings",
                   style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600,
@@ -43,7 +43,7 @@ class _ScreenChangeState extends State<ScreenChange> {
               top: 100.0,
               left: 20.0,
               right: 20.0,
-              child: AppBar(
+              child: currentIndex==1?Center(child: Text("Fill in the form below",style: TextStyle(color: Colors.white,fontSize: 14),),) :AppBar(
                 backgroundColor: Colors.white,
                 leading: IconButton(
                     icon: new Icon(Icons.arrow_back),
@@ -54,7 +54,7 @@ class _ScreenChangeState extends State<ScreenChange> {
                 primary: false,
                 title: TextField(
                     decoration: InputDecoration(
-                        hintText: "Location",
+                        hintText: currentIndex==3?"Search Request":"Location",
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                             color: Colors.grey, fontFamily: 'Montserrat'))),
@@ -81,7 +81,7 @@ class _ScreenChangeState extends State<ScreenChange> {
     return Scaffold(
       appBar: _appBar(AppBar().preferredSize.height),
       body: Center(
-        child: currentIndex==0?Places():currentIndex==1?complaints():currentIndex==2?complaints():Settings()),
+        child: currentIndex==0?Places():currentIndex==1?complaints():currentIndex==2?complaints():currentIndex==3?Job_Request():Settings()),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: currentIndex,
         onItemSelected: (index) {
